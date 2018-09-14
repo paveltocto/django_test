@@ -155,37 +155,14 @@ AWS_ACCESS_KEY_ID = NSS_AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY = NSS_AWS_SECRET_ACCESS_KEY
 AWS_STORAGE_BUCKET_NAME = NSS_AWS_STORAGE_BUCKET_NAME
 
-AWS_S3_FILE_OVERWRITE = False
-
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 if ENV == 'LOCAL':
     STATIC_URL = '/static/'
     MEDIA_URL = '/media/'
-else:
-    # AWS S3 Configuration
-    STATICFILES_STORAGE = 'core.custom_storage.StaticStorage'
-    DEFAULT_FILE_STORAGE = 'core.custom_storage.MediaStorage'
 
-    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-    STATICFILES_LOCATION = 'static'
-    MEDIAFILES_LOCATION = 'media'
-
-    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-    MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
-    max_age = 31536000
-
-    AWS_HEADERS = {
-        'Content-Disposition': 'attachment',
-        'Expires': http_date(time() + max_age * 5),
-        'Cache-Control': 'max-age=' + str(max_age),
-    }
-    # End AWS S3 Configuration
-
-JWT_EXPIRATION_DELTA = timedelta(minutes=5)
+JWT_EXPIRATION_DELTA = timedelta(minutes=50)
 
 if NSS_USE_JWT:    
     JWT_AUTH = {
