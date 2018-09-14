@@ -1,0 +1,24 @@
+FIRST INSTALL
+
+1.- install virtualenv (pip install virtualenv)
+
+2.- activate virtual env in your project
+
+    a.- python3 -m virtualenv bin (this command generates a bin folder with python references)
+
+    b.- activating virtualenv
+
+        a.- bin\Scripts\activate (on cmd windows)
+
+        b.- source bin/Scripts/activate (on git bash or linux shell)
+
+    c.- when you activate the virtualenv you must see a prefix on your shell, the name of the prefix will be "(bin)"
+
+    d.- if you need closing the virtualenv you type "deactive" and press enter on the shell
+
+3.- install requirements (pip install -r requirements.txt)
+
+4.- if you have an error like a "'config-win.h': No such file or directory",
+    you need to install the mysql C connector from this link https://dev.mysql.com/downloads/file/?id=378015
+
+5.- to deploying statics files execute "python3 manage.py collectstatic"
