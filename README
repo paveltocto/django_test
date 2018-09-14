@@ -17,8 +17,3 @@ FIRST INSTALL
     d.- if you need closing the virtualenv you type "deactive" and press enter on the shell
 
 3.- install requirements (pip install -r requirements.txt)
-
-4.- if you have an error like a "'config-win.h': No such file or directory",
-    you need to install the mysql C connector from this link https://dev.mysql.com/downloads/file/?id=378015
-
-5.- to deploying statics files execute "python3 manage.py collectstatic"
